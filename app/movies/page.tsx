@@ -2,7 +2,7 @@ import { searchMovie, SearchMovieResult } from "./server/tmdb/requests";
 import { MovieResults } from "./components/movieResults/movieResults";
 import { NoResults } from "./components/noResults";
 import { NoQuery } from "./components/noQuery";
-import { MoviePageProvider } from "./context/moviePageContext";
+import { MoviePageProvider } from "./components/moviePageProvider";
 
 export default async function Page({
   searchParams,

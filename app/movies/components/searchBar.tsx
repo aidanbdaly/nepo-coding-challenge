@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useMoviePageContext } from "../context/moviePageContext";
+import { useMoviePageContext } from "./moviePageProvider";
 
 export const SearchBar: React.FC = () => {
   const { query } = useMoviePageContext();

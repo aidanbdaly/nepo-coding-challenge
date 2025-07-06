@@ -4,7 +4,7 @@ export type MovieListing = {
     posterUrl: string;
 };
 
-export interface MovieDetails {
+export type MovieDetails = {
     id: number;
     title: string;
     originalTitle: string;
