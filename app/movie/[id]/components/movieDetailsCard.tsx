@@ -66,7 +66,11 @@ export const MovieDetailsCard: React.FC<MovieDetailsCardProps> = ({
               </span>
             )}
             <span className="rounded bg-indigo-600/20 px-2 py-0.5 text-indigo-300">
-              {new Date(releaseDate).getFullYear()}
+              {new Date(releaseDate).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
             </span>
             {countries.map((c) => (
               <span
