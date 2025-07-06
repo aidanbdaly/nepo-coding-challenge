@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/",
-        destination: "/movies",
+        destination: "/movie",
         permanent: true,
       },
     ];

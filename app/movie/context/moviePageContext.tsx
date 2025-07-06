@@ -1,5 +1,13 @@
-import { useContext } from "react";
-import { MoviePageContext } from "../context/moviePageContext";
+"use client";
+
+import { createContext, useContext } from "react";
+
+type MoviePageContextType = {
+  query: string;
+  page: string;
+};
+
+const MoviePageContext = createContext<MoviePageContextType | null>(null);
 
 type MoviePageProviderProps = {
   query: string;
@@ -11,15 +19,8 @@ export const MoviePageProvider = (
 ) => {
   const { query, page, children } = props;
 
-  const getSearchParams = () => {
-    const searchParams = new URLSearchParams();
-    searchParams.set("query", query);
-    searchParams.set("page", page);
-    return searchParams;
-  };
-
   return (
-    <MoviePageContext.Provider value={{ query, page, getSearchParams }}>
+    <MoviePageContext.Provider value={{ query, page }}>
       {children}
     </MoviePageContext.Provider>
   );

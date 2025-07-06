@@ -19,7 +19,7 @@ export default async function Page({ params, searchParams }: MoviePageProps) {
   return (
     <div className="flex items-center justify-center px-4 py-8">
       <Link
-        href={`/movies?${new URLSearchParams(searchParamsResolved).toString()}`}
+        href={`/movie?${new URLSearchParams(searchParamsResolved).toString()}`}
         className="z-20 rounded-full bg-white/10 p-2 text-slate-50 hover:bg-white/20"
         aria-label="Back to movies list"
       >

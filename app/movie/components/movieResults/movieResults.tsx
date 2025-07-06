@@ -18,7 +18,6 @@ export const MovieResults: React.FC<MovieResultsProps> = (props) => {
       <p className="text-gray-600 mb-4">
         Found {totalResults} results across {totalPages} pages.
       </p>
-      <Paginator totalPages={totalPages} />
       <MovieListingGrid movies={movies} />
       <Paginator totalPages={totalPages} />
     </div>

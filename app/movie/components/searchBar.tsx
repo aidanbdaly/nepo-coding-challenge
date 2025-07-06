@@ -10,7 +10,7 @@ export const SearchBar: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center gap-4">
-      <form action="/movies" method="get" className="flex items-center gap-2">
+      <form action="/movie" method="get" className="flex items-center gap-2">
         <input type="hidden" name="page" value="1" />
         <input
           type="text"

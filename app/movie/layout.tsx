@@ -5,7 +5,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <main>
       <Header />
-      <section className="container">{children}</section>
+      <section className="container mx-auto">{children}</section>
     </main>
   );
 }

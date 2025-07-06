@@ -1,16 +1,18 @@
-import { useMoviePageContext } from "../moviePageProvider";
+"use client";
+
+import { useMoviePageContext } from "../../context/moviePageContext";
 
 export type PaginatorProps = {
   totalPages: number;
 };
 
 export const Paginator: React.FC<PaginatorProps> = ({ totalPages }) => {
-  const { page: pageString, getSearchParams } = useMoviePageContext();
+  const { page: pageString, query } = useMoviePageContext();
 
   const page = parseInt(pageString, 10);
 
-  const prevUrlSearchParams = getSearchParams();
-  const nextUrlSearchParams = getSearchParams();
+  const prevUrlSearchParams = new URLSearchParams({ query });
+  const nextUrlSearchParams = new URLSearchParams({ query });
 
   if (page > 1) {
     prevUrlSearchParams.set("page", (page - 1).toString());

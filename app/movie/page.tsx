@@ -2,7 +2,7 @@ import { searchMovie, SearchMovieResult } from "./server/tmdb/requests";
 import { MovieResults } from "./components/movieResults/movieResults";
 import { NoResults } from "./components/noResults";
 import { NoQuery } from "./components/noQuery";
-import { MoviePageProvider } from "./components/moviePageProvider";
+import { MoviePageProvider } from "./context/moviePageContext";
 
 export default async function Page({
   searchParams,
@@ -29,7 +29,7 @@ export default async function Page({
         {movies.results.length > 0 ? (
           <MovieResults
             movies={movies.results}
-            query={query} 
+            query={query}
             totalPages={movies.totalPages}
             totalResults={movies.totalResults}
           />
