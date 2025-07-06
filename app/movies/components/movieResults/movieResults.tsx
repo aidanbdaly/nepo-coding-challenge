@@ -1,4 +1,3 @@
-import { SearchMovieResult } from "../../server/tmdb/requests";
 import { MovieListing } from "../../types";
 import { MovieListingGrid } from "./movieListingGrid";
 import { Paginator } from "./paginator";
