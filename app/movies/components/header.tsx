@@ -4,9 +4,9 @@ import { SearchBar } from "./searchBar";
 export const Header: React.FC = () => {
   return (
     <header className="container mx-auto flex items-center justify-between px-4 py-6 text-white">
-      <a href="/" className="text-white no-underline">
+      <Link href="/" className="text-white no-underline">
         <h1 className="text-3xl font-bold">Movie Browser 9000</h1>
-      </a>
+      </Link>
       <SearchBar />
       <nav>
         <ul className="flex space-x-4">

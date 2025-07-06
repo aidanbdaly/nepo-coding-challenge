@@ -1,6 +1,7 @@
-import { Paginator } from "./components/paginator";
-import { searchMovies, SearchMoviesResult } from "./server/tmdb/requests";
-import { MovieListingGrid } from "./components/movieListingGrid";
+import { searchMovie, SearchMovieResult } from "./server/tmdb/requests";
+import { MovieResults } from "./components/movieResults/movieResults";
+import { NoResults } from "./components/noResults";
+import { NoQuery } from "./components/noQuery";
 
 export default async function Page({
   searchParams,
@@ -13,49 +14,26 @@ export default async function Page({
   const page = searchParamsResolved.page ?? "1";
 
   if (!query) {
-    return (
-      <div className="text-center mt-8">
-        <p className="text-gray-500">
-          Use the search bar above to find movies.
-        </p>
-      </div>
-    );
+    return <NoQuery />;
   }
 
-  const movies: SearchMoviesResult = await searchMovies({
+  const movies: SearchMovieResult = await searchMovie({
     query: query,
     page: page,
   });
 
-  const total = movies.totalPages ?? 0;
-  const totalResults = movies.totalResults ?? 0;
-
   return (
     <div className="container mx-auto px-4 py-8">
       {movies.results.length > 0 ? (
-        <>
-          <h1 className="text-2xl font-bold mb-4">
-            Search results for {query}
-          </h1>
-          <p className="text-gray-600 mb-4">
-            Found {totalResults} results across {total} pages.
-          </p>
-          <Paginator
-            currentPage={parseInt(page)}
-            totalPages={total}
-          />
-          <MovieListingGrid movies={movies.results} />
-          <Paginator
-            currentPage={parseInt(page)}
-            totalPages={total}
-          />
-        </>
+        <MovieResults
+          movies={movies.results}
+          query={query}
+          page={page}
+          totalPages={movies.totalPages}
+          totalResults={movies.totalResults}
+        />
       ) : (
-        <div className="text-center mt-8">
-          <p className="text-gray-500">
-            No movies found.
-          </p>
-        </div>
+        <NoResults />
       )}
     </div>
   );

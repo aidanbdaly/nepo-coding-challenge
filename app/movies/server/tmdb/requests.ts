@@ -5,21 +5,21 @@ import { makeTMDBrequest } from "./core";
 import { TMDBSearchMovieParams, TMDBGetMovieResponse, TMDBSearchMovieResponse } from "./types";
 import { getTMDBImageUrl } from "./utilities";
 
-export type SearchMoviesResult = {
+export type SearchMovieResult = {
     results: MovieListing[];
     totalResults: number;
     totalPages: number;
 };
 
-const SEARCH_MOVIES_RESOURCE = "/search/movie" as const;
+const SEARCH_MOVIE_RESOURCE = "/search/movie" as const;
 
-export const searchMovies = async (params: TMDBSearchMovieParams): Promise<SearchMoviesResult> => {
+export const searchMovie = async (params: TMDBSearchMovieParams): Promise<SearchMovieResult> => {
     const queryParams = new URLSearchParams({
         query: params.query,
         page: params.page,
     });
 
-    const response = await makeTMDBrequest<TMDBSearchMovieResponse>(SEARCH_MOVIES_RESOURCE, queryParams);
+    const response = await makeTMDBrequest<TMDBSearchMovieResponse>(SEARCH_MOVIE_RESOURCE, queryParams);
 
     const movies: MovieListing[] = response.results.map(movie => ({
         id: movie.id,

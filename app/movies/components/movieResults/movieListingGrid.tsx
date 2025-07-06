@@ -1,4 +1,4 @@
-import { MovieListing } from "../types";
+import { MovieListing } from "../../types";
 import { MovieListingCard } from "./movieListingCard";
 
 export type MovieListingGridProps = {

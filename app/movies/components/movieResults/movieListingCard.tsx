@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { MovieListing } from "../types";
+import { MovieListing } from "../../types";
 import Image from "next/image";
 
 export type MovieListingCard = {
