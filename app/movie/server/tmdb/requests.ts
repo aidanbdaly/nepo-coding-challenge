@@ -13,6 +13,7 @@ export type SearchMovieResult = {
   results: MovieListing[];
   totalResults: number;
   totalPages: number;
+  omitted: number;
 };
 
 const SEARCH_MOVIE_RESOURCE = "/search/movie" as const;
@@ -39,10 +40,13 @@ export const searchMovie = async (
       posterUrl: movie.poster_path ? getTMDBImageUrl(movie.poster_path) : "",
     }));
 
+  const ommitted = response.results.length - movies.length;
+
   return {
     results: movies,
     totalResults: response.total_results ?? 0,
     totalPages: response.total_pages ?? 0,
+    omitted: ommitted,
   };
 };
 

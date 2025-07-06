@@ -30,6 +30,7 @@ export default async function Page({
           <MovieResults
             movies={movies.results}
             query={query}
+            omitted={movies.omitted}
             totalPages={movies.totalPages}
             totalResults={movies.totalResults}
           />

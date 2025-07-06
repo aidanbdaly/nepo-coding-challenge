@@ -6,6 +6,7 @@ export type MovieResultsProps = {
   readonly query: string;
   readonly totalPages: number;
   readonly totalResults: number;
+  readonly omitted?: number;
 };
 
 export const MovieResults: React.FC<MovieResultsProps> = (props) => {
@@ -17,6 +18,11 @@ export const MovieResults: React.FC<MovieResultsProps> = (props) => {
       <p className="text-gray-600 mb-4">
         Found {totalResults} results across {totalPages} pages.
       </p>
+      {props.omitted ? (
+        <p className="text-gray-600 mb-4">
+          {props.omitted} results were omitted due to missing poster images.
+        </p>
+      ) : null}
       <MovieListingGrid movies={movies} />
       <Paginator totalPages={totalPages} />
     </div>
