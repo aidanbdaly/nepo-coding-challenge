@@ -25,7 +25,7 @@ export default async function Page({
 
   return (
     <MoviePageProvider query={query} page={page}>
-      <div className="mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8">
         {movies.results.length > 0 ? (
           <MovieResults
             movies={movies.results}
