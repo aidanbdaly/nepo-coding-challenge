@@ -53,7 +53,7 @@ export default async function Page({
       ) : (
         <div className="text-center mt-8">
           <p className="text-gray-500">
-            No movies found for "{query}".
+            No movies found.
           </p>
         </div>
       )}

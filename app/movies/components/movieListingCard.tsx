@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { MovieListing } from "../types";
+import Image from "next/image";
 
 export type MovieListingCard = {
   readonly movie: MovieListing;
@@ -17,7 +18,7 @@ export const MovieListingCard: React.FC<MovieListingCard> = ({ movie }) => {
       className="block"
     >
       <div className="shadow hover:shadow-lg transition-shadow duration-200 h-full">
-        <img
+        <Image
           src={movie.posterUrl || "https://via.placeholder.com/150"}
           alt={movie.title}
           className="w-full h-64 object-cover rounded mb-4"

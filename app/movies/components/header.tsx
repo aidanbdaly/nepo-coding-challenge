@@ -1,4 +1,5 @@
-import { SearchBar } from "../movies/components/searchBar";
+import Link from "next/link";
+import { SearchBar } from "./searchBar";
 
 export const Header: React.FC = () => {
   return (
@@ -10,19 +11,19 @@ export const Header: React.FC = () => {
       <nav>
         <ul className="flex space-x-4">
           <li>
-            <a href="/" className="hover:underline">
+            <p className="hover:underline">
               Home
-            </a>
+            </p>
           </li>
           <li>
-            <a href="/about" className="hover:underline">
+            <p className="hover:underline">
               About
-            </a>
+            </p>
           </li>
           <li>
-            <a href="/contact" className="hover:underline">
+            <p className="hover:underline">
               Contact
-            </a>
+            </p>
           </li>
         </ul>
       </nav>
