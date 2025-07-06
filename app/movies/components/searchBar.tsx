@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useMoviePageContext } from "./moviePageProvider";
 
 export const SearchBar: React.FC = () => {
-  const { query } = useMoviePageContext();
 
-  const [value, setValue] = useState(query ?? "");
+  const [value, setValue] = useState("");
 
   const disabled = !value.trim();
 
