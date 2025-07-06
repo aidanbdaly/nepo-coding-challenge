@@ -1,6 +1,5 @@
 import { MovieListing } from "../../types";
-import { MovieListingGrid } from "./movieListingGrid";
-import { Paginator } from "./paginator";
+import { MovieListingGrid, Paginator } from "./components";
 
 export type MovieResultsProps = {
   readonly movies: MovieListing[];

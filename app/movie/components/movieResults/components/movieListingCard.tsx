@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-
-import { MovieListing } from "../../types";
-import { useMoviePageContext } from "../../context/moviePageContext";
+import { useMoviePageContext } from "@/app/movie/context/moviePageContext";
+import { MovieListing } from "@/app/movie/types";
 
 export type MovieListingCard = {
   readonly movie: MovieListing;

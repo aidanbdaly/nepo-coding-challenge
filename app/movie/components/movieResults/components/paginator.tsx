@@ -1,6 +1,6 @@
 "use client";
 
-import { useMoviePageContext } from "../../context/moviePageContext";
+import { useMoviePageContext } from "@/app/movie/context/moviePageContext";
 
 export type PaginatorProps = {
   totalPages: number;
