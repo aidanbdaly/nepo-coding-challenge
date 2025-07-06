@@ -1,20 +1,18 @@
-"use client";
-
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { MovieListing } from "../../types";
 import Image from "next/image";
+import { useMoviePageContext } from "../../context/moviePageContext";
 
 export type MovieListingCard = {
   readonly movie: MovieListing;
 };
 
 export const MovieListingCard: React.FC<MovieListingCard> = ({ movie }) => {
-  const searchParams = useSearchParams();
+  const { getSearchParams } = useMoviePageContext();
 
   return (
     <Link
-      href={`/movies/${movie.id}?${searchParams.toString()}`}
+      href={`/movies/${movie.id}?${getSearchParams().toString()}`}
       className="block"
     >
       <div className="shadow hover:shadow-lg transition-shadow duration-200 h-full">

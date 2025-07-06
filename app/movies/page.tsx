@@ -2,6 +2,7 @@ import { searchMovie, SearchMovieResult } from "./server/tmdb/requests";
 import { MovieResults } from "./components/movieResults/movieResults";
 import { NoResults } from "./components/noResults";
 import { NoQuery } from "./components/noQuery";
+import { MoviePageProvider } from "./context/moviePageContext";
 
 export default async function Page({
   searchParams,
@@ -23,18 +24,19 @@ export default async function Page({
   });
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {movies.results.length > 0 ? (
-        <MovieResults
-          movies={movies.results}
-          query={query}
-          page={page}
-          totalPages={movies.totalPages}
-          totalResults={movies.totalResults}
-        />
-      ) : (
-        <NoResults />
-      )}
-    </div>
+    <MoviePageProvider query={query} page={page}>
+      <div className="container mx-auto px-4 py-8">
+        {movies.results.length > 0 ? (
+          <MovieResults
+            movies={movies.results}
+            query={query} 
+            totalPages={movies.totalPages}
+            totalResults={movies.totalResults}
+          />
+        ) : (
+          <NoResults />
+        )}
+      </div>
+    </MoviePageProvider>
   );
 }

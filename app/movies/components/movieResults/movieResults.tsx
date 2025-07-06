@@ -5,13 +5,12 @@ import { Paginator } from "./paginator";
 export type MovieResultsProps = {
   readonly movies: MovieListing[];
   readonly query: string;
-  readonly page: string;
   readonly totalPages: number;
   readonly totalResults: number;
 };
 
 export const MovieResults: React.FC<MovieResultsProps> = (props) => {
-  const { movies, query, page, totalPages, totalResults } = props;
+  const { movies, query, totalPages, totalResults } = props;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -19,9 +18,9 @@ export const MovieResults: React.FC<MovieResultsProps> = (props) => {
       <p className="text-gray-600 mb-4">
         Found {totalResults} results across {totalPages} pages.
       </p>
-      <Paginator currentPage={parseInt(page)} totalPages={totalPages} />
+      <Paginator totalPages={totalPages} />
       <MovieListingGrid movies={movies} />
-      <Paginator currentPage={parseInt(page)} totalPages={totalPages} />
+      <Paginator totalPages={totalPages} />
     </div>
   );
 };

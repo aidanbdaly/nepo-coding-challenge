@@ -1,12 +1,12 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { useMoviePageContext } from "../context/moviePageContext";
 
 export const SearchBar: React.FC = () => {
-  const searchParams = useSearchParams();
+  const { query } = useMoviePageContext();
 
-  const [value, setValue] = useState(searchParams.get("query") ?? "");
+  const [value, setValue] = useState(query ?? "");
 
   const disabled = !value.trim();
 
